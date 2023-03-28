@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<main>
+
+  <section>
+  <app-sidebar></app-sidebar>
+  </section>
+
+  <section>
+
+    <h2 id="subtitulo">Información de Cuenta</h2>
+
+    <div id="infoCuenta">
+
+      <form #formInfo="ngForm" (ngSubmit)="onSave(formInfo.value)">
+
+        <div id="infoForm">
+
+
+          <label for="nombre">Nombre de Usuario:</label>
+          <input #nombre="ngModel" [maxlength]=15 [minlength]="2" required type="text" name="nombre" id="nombre" [disabled]="!editando" [(ngModel)]="usuario.nombre" value="{{ usuario.nombre }}" [class.error]="nombre.invalid" [class.correct]="nombre.dirty && nombre.valid">
+          <p *ngIf="editando" [hidden]="nombre.valid">Este campo es requerido</p>
+
+
+          <label for="email">Email:</label>
+          <input #email="ngModel" required type="email" name="email" id="email" [disabled]="!editando" [(ngModel)]="usuario.email" value="{{ usuario.email }}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [class.error]="email.invalid" [class.correct]="email.dirty && email.valid">
+          <p *ngIf="email.errors?.['required']" [hidden]="email.valid">Este campo es requerido</p>
+          <p *ngIf="email.errors?.['pattern']" [hidden]="email.valid">Por favor ingrese una dirección de correo electrónico válida</p>
+
+
+          <label for="password">Contraseña:</label>
+          <input #password="ngModel" required type="password" name="password" id="password" [disabled]="!editando" [(ngModel)]="usuario.password" value="{{ usuario.password }}" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$" [minlength]="6" [maxlength]="18" [class.error]="password.invalid" [class.correct]="password.dirty && password.valid">
+          <p *ngIf="password.errors?.['pattern']" [hidden]="password.valid">Debe tener al menos una letra may., una letra min., y un dígito</p>
+          <p *ngIf="password.errors?.['required']" [hidden]="password.valid">Este campo es requerido</p>
+
+        </div>
+
+        <div id="botonesForm">
+
+          <button *ngIf="!editando" type="button" class="editarDatos" (click)="onEdit()">Editar Datos</button>
+
+          <button *ngIf="editando" type="submit" class="guardarCambios" [disabled]="formInfo.invalid || formInfo.pristine" (click)="onSave(formInfo.value)">Guardar Cambios</button>
+
+          <button class="eliminarDatos" *ngIf="editando" type="button" (click)="onCancel()">Cancelar</button>
+
+          <button class="eliminarDatos" *ngIf="!editando" type="button" (click)="onDelete()">Eliminar Cuenta</button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </section>
+
+</main>
+
+<app-footer></app-footer>

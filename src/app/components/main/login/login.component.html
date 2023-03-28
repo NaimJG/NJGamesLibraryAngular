@@ -1,0 +1,28 @@
+<script src="login.component.ts"></script>
+<app-header></app-header>
+<main>
+
+  <section class="login">
+
+    <form [formGroup]="formularioReactivo">
+
+      <div class="control">
+        <label for="usuario">Nombre de Usuario</label>
+        <input id="usuario" type="text" formControlName="nombre" [ngClass]="{'error': errorNombre}">
+        <p>{{ errorNombre }}</p>
+      </div>
+
+      <div class="control">
+        <label for="password">Contraseña</label>
+        <input id="password" type="password" formControlName="password" [ngClass]="{'error': errorPassword}">
+        <p>{{ errorPassword }}</p>
+      </div>
+
+      <button (click)="OnSubmit()" id="btn" [disabled]="formularioReactivo.invalid">Iniciar Sesión</button>
+
+
+    </form>
+
+  </section>
+
+</main>

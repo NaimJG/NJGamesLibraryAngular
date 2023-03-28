@@ -1,0 +1,21 @@
+<h3>Mac OS</h3>
+
+  <div class="slick-container">
+
+    <button class="buttonlft" id="button-left" data-button="button-left">
+      <img src="../../../../../assets/images/left.svg" alt="Desplazar hacia la izquierda">
+    </button>
+
+    <div class="slick-list" id="slick-list">
+
+      <div class="slick-track" id="track">
+        <app-videojuego [videojuego]="videojuego" *ngFor="let videojuego of videojuegos" (showVideogame)="onShowDetail($event)" class="slick"></app-videojuego>
+      </div>
+
+    </div>
+
+    <button class="buttonrgt" id="button-right" data-button="button-right">
+      <img src="../../../../../assets/images/right.svg" alt="Desplazar hacia la derecha">
+    </button>
+
+  </div>

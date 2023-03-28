@@ -1,0 +1,56 @@
+<app-header></app-header>
+<main>
+
+  <section>
+  <app-sidebar></app-sidebar>
+  </section>
+
+  <section id="contenedor" *ngIf="!detalleService.showVideogameDetail">
+
+    <h2>Busca la consola de tu preferencia</h2>
+
+    <app-nintendo></app-nintendo>
+
+    <app-playstation></app-playstation>
+
+    <app-xbox></app-xbox>
+
+    <app-microsoft></app-microsoft>
+
+    <app-macos></app-macos>
+
+  </section>
+
+  <!-- Sección oculta para info detallada de las cards -->
+
+  <section id="infoOculta" *ngIf="detalleService.showVideogameDetail">
+    <div id="cardSelected">
+      <button type="button" id="back" (click)="cambiarValor()"><img src="/assets/images/arrow_back_FILL0_wght400_GRAD0_opsz48.svg" alt="Regresar a la página anterior">Regresar</button>
+      <h2 id="tituloJuego">{{ detalleService.videogameChosen.nombre }}</h2>
+    </div>
+    <div id="contenedorOculto" *ngIf="detalleService.videogameChosen">
+      <div id="bloqueImagen">
+        <img class="imagenJuego" src="{{ detalleService.videogameChosen.imagen }}" id="{{ detalleService.videogameChosen.id }}" alt="Imagen de portada del videojuego {{ detalleService.videogameChosen.nombre }}">
+      </div>
+      <div id="descripcion">
+        <p>{{ detalleService.videogameChosen.descripcion }}</p>
+      </div>
+    </div>
+    <div>
+      <div id="caracteristicas">
+        <h3>Genero: <span>{{ detalleService.videogameChosen.genero }}</span></h3>
+        <h3>Consola: <span>{{ detalleService.videogameChosen.consola }}</span></h3>
+        <h3>Fecha de Lanzamiento: <span>{{ detalleService.videogameChosen.anio_lanzamiento }}</span></h3>
+        <h3>Empresa Desarrolladora: <span>{{ detalleService.videogameChosen.empresa }}</span></h3>
+      </div>
+      <div>
+        <button type="button" id="añadir" *ngIf="!detalleService.getBtnFav" (click)="agregarFav(detalleService.videogameChosen.id)">Añadir a mis favoritos</button>
+        <button type="button" id="quitar" *ngIf="detalleService.getBtnFav" (click)="quitarFav(detalleService.videogameChosen.id)">Eliminar de mis favoritos</button>
+      </div>
+    </div>
+  </section>
+
+  <app-btn-up style="position: absolute" *ngIf="!detalleService.showVideogameDetail"></app-btn-up>
+
+</main>
+<app-footer></app-footer>

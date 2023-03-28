@@ -1,0 +1,101 @@
+/* ------- Hoja de estilos para los carruseles -------------- */
+
+h3 {
+  position: relative;
+  left: 40px;
+  font-weight: 500;
+  font-size: 50px;
+  color: #3f4041;
+  margin-bottom: -40px;
+  margin-top: 10px;
+  width: 1150px;
+}
+
+/* *Imagenes* */
+
+.slick-list{
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 1130px;
+  height: 350px;
+  padding: 10px 0;
+  margin: 0 auto;
+  max-width: 1200px;
+  overflow: hidden;
+}
+
+.slick-track{
+  position: relative;
+  width: auto;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  transition: .5s ease-in-out;
+}
+
+
+/* --------------- Botones ---------------- */
+
+.buttonlft{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background-color: rgb(220, 220, 220);
+  position: relative;
+  bottom: -200px;
+  z-index: 4;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.15);
+  border: 0;
+  cursor: pointer;
+  left: 5px;
+}
+
+.buttonlft:focus{
+  outline: 0;
+}
+
+.buttonlft:hover{
+  transform: scale(1.1);
+}
+
+.buttonrgt{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background-color: rgb(220, 220, 220);
+  position: relative;
+  z-index: 4;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.15);
+  border: 0;
+  cursor: pointer;
+  left: 73vw;
+  bottom: 200px;
+}
+
+.buttonrgt:focus{
+  outline: 0;
+}
+
+.buttonrgt:hover{
+  transform: scale(1.1);
+}
+
+#button-right img{
+  width: 13px;
+  height: 100%;
+  color: rgba(0,0,0,.7);
+}
+
+#button-left img{
+  width: 13px;
+  height: 100%;
+  color: rgba(0,0,0,.7);
+}

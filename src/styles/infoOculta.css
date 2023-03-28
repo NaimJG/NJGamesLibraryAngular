@@ -1,0 +1,122 @@
+/* *---------------Contenido oculto de la página------------------------* */
+
+#infoOculta{
+  position: relative;
+  padding: 0 20px 20px 20px;
+  flex-direction: column;
+  left: -180px;
+}
+
+#tituloJuego{
+  position: relative;
+  top: 10px;
+  left: 200px;
+  font-size: 40px;
+  margin-top: 9px;
+}
+
+#contenedorOculto{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+#contenedorOculto #bloqueImagen{
+  width: 350px;
+}
+
+#contenedorOculto #descripcion{
+  width: 700px;
+  font-size: 22px;
+}
+
+#contenedorOculto #descripcion p{
+  padding: 0;
+  margin: 0;
+  text-align: justify;
+}
+
+#contenedorOculto img{
+  border-radius: 10px;
+  height: 325px;
+  width: 330px;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.4);
+}
+
+#caracteristicas h3{
+  font-size: 25px;
+}
+
+#caracteristicas h3 span{
+  font-size: 20px;
+  color: #3f4041;
+}
+
+/* *-------------------------------- Botones ocultos -----------------------------*  */
+
+#quitar{
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  background-color: rgb(228, 52, 52);
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  bottom: 150px;
+  right: 180px;
+}
+
+#añadir{
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  background-color: rgb(18, 222, 45);
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  bottom: 150px;
+  right: 180px;
+}
+
+#añadir:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+#quitar:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+#back{
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  background-color: rgb(218, 218, 218);
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 20px;
+  left: 20px;
+}
+
+#back:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+#back img{
+  width: 40px;
+  height: 40px;
+}

@@ -1,0 +1,38 @@
+<script src="register.component.ts"></script>
+
+
+<app-header></app-header>
+<main>
+  <section class="registro">
+    <form [formGroup]="formularioReactivo">
+
+      <div class="control">
+        <label for="usuario">Nombre de Usuario <span>*</span></label>
+        <input id="usuario" type="text" formControlName="nombre" [ngClass]="{'error': errorNombre}">
+        <p>{{ errorNombre }}</p>
+      </div>
+
+      <div class="control">
+        <label for="email">E-mail <span>*</span></label>
+        <input id="email" type="email" formControlName="email" [ngClass]="{'error': errorEmail}">
+        <p>{{ errorEmail }}</p>
+      </div>
+
+      <div class="control">
+        <label for="password">Contraseña <span>*</span></label>
+        <input id="password" type="password" formControlName="password" [ngClass]="{'error': errorPassword}">
+        <p>{{ errorPassword }}</p>
+      </div>
+
+      <div class="control">
+        <label for="repassword">Repetir contraseña <span>*</span></label>
+        <input id="repassword" type="password" formControlName="password2" [ngClass]="{'error': errorRePassword}">
+        <p>{{ errorRePassword }}</p>
+      </div>
+
+      <button id="btn" (click)="onSubmit()" >Registrarse</button>
+    </form>
+
+  </section>
+</main>
+

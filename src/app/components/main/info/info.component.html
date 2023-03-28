@@ -1,0 +1,44 @@
+<body>
+  <app-header></app-header>
+  <main>
+    <section class="info">
+      <h2>¿Quienes somos?</h2>
+      <p>¡Hola gamer! NJGames Library es una página web dedicada a la recopilación
+        de información sobre los videojuegos más actuales o los que están más de moda entre la
+        comunidad para ponerlos todos juntos a tu alcance, de forma que puedas ver todos los
+        detalles de tus videojuegos preferidos o de los que no tenías ningún conocimiento.
+      </p>
+      <h2>Nuestro objetivo</h2>
+      <p>¡Queremos que votes! Guarda tus videojuegos preferidos en tu cuenta añadiendolos a tus
+        favoritos, de esa manera queremos contabilizar la cantidad de usuarios que han guardado un
+        juego como su favorito y podrás ver el seguimiento de la votación en la sección de Ranking,
+        de tal forma podremos ver cuales son los juegos más famosos y más votados entre la comunidad
+        gamer. Nuestro fin es el de desarrollar un juego basado en los datos recopilados.
+      </p>
+    </section>
+    <section class="comunicate">
+      <form #formInfo="ngForm" (ngSubmit)="sendEmail($event)">
+
+        <h3>Si quieres mas información no dudes en comunicarte con nosotros!</h3>
+
+        <label for="nombre">Nombre: <span>*</span></label>
+        <input #nombre="ngModel" type="text" name="nombre" id="nombre" [maxlength]=15 [minlength]="2" required [(ngModel)]="cuerpoForm.nombre" placeholder="Luis Martinez.." [class.error]="nombre.dirty && nombre.invalid" [class.correct]="nombre.dirty && nombre.valid">
+        <p *ngIf="nombre.dirty && nombre.errors?.['required']" [hidden]="nombre.valid">Este campo es requerido</p>
+
+        <label for="email">Correo electrónico: <span>*</span></label>
+        <input #email="ngModel" required type="email" id="email" name="email" placeholder="luismartinez@dominio.com" [(ngModel)]="cuerpoForm.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [class.error]="email.dirty && email.invalid" [class.correct]="email.dirty && email.valid">
+        <p *ngIf="email.dirty && email.errors?.['required']" [hidden]="email.valid">Este campo es requerido</p>
+        <p *ngIf="email.dirty && email.errors?.['pattern']" [hidden]="email.valid">Ingrese una dirección de correo válida</p>
+
+
+        <label for="mensaje">Mensaje: <span>*</span></label>
+        <textarea #mensaje="ngModel" required name="mensaje" id="mensaje" placeholder="Escriba su comentario aquí..." [(ngModel)]="cuerpoForm.mensaje" [class.error]="mensaje.dirty && mensaje.invalid" [class.correct]="mensaje.dirty && mensaje.valid"></textarea>
+        <p *ngIf="mensaje.dirty && mensaje.errors?.['required']" [hidden]="mensaje.valid">Este campo es requerido</p>
+
+        <button type="submit" id="btn" [disabled]="formInfo.invalid">Enviar</button>
+
+      </form>
+    </section>
+  </main>
+</body>
+<app-footer></app-footer>

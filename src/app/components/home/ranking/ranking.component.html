@@ -1,0 +1,86 @@
+<app-header></app-header>
+<main>
+  <app-sidebar></app-sidebar>
+
+  <div *ngIf="!showVideogameDetail">
+
+    <h2 id="subtitulo">Ranking de los juegos Favoritos</h2>
+
+    <h3>Filtros:</h3>
+
+    <section id="filtros">
+
+      <!-- Select para el top general -->
+
+      <select [(ngModel)]="rankingOption" (change)="updateVideojuegosTop$()">
+        <option value="Todos">Todos los juegos</option>
+        <option value="Top 3">Top 3</option>
+        <option value="Top 5">Top 5</option>
+        <option value="Top 10">Top 10</option>
+      </select>
+
+      <!-- Select para el ranking por Género -->
+
+      <select [(ngModel)]="rankingGenero" (change)="updateVideojuegosGenero$()">
+        <option value="Todos">Todos los generos</option>
+        <option value="Accion">Accion</option>
+        <option value="Aventura">Aventura</option>
+        <option value="Estrategia">Estrategia</option>
+        <option value="Plataformas">Plataformas</option>
+        <option value="Shooter">Shooter</option>
+        <option value="Deportes">Deportes</option>
+      </select>
+
+      <!-- Select para el ranking por Consolas -->
+
+      <select [(ngModel)]="rankingConsolas" (change)="updateVideojuegosConsolas$()">
+        <option value="Todos">Todas las consolas</option>
+        <option value="Nintendo Switch">Nintendo Switch</option>
+        <option value="PlayStation 5">PlayStation 5</option>
+        <option value="XBOX One">XBOX One</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="Mac OS">Mac OS</option>
+      </select>
+
+    </section>
+
+    <div id="card">
+      <app-videojuego (showVideogame)="onShowDetail($event)"
+                      [videojuego]="videojuego" *ngFor="let videojuego of videojuegos$ | async"></app-videojuego>
+    </div>
+
+  </div>
+
+  <!-- Sección oculta para info detallada de las cards -->
+
+  <section id="infoOculta" *ngIf="showVideogameDetail">
+    <div>
+      <button type="button" id="back" (click)="toggleVideogameDetail()"><img src="/assets/images/arrow_back_FILL0_wght400_GRAD0_opsz48.svg">Regresar</button>
+      <h2 id="tituloJuego">{{ videogameChosen.nombre }}</h2>
+    </div>
+    <div id="contenedorOculto">
+      <div id="bloqueImagen">
+        <img class="imagenJuego" src="{{ videogameChosen.imagen }}" id="{{ videogameChosen.id }}">
+      </div>
+      <div id="descripcion">
+        <p>{{ videogameChosen.descripcion }}</p>
+      </div>
+    </div>
+    <div>
+      <div id="caracteristicas">
+        <h3>Genero: <span>{{ videogameChosen.genero }}</span></h3>
+        <h3>Consola: <span>{{ videogameChosen.consola }}</span></h3>
+        <h3>Fecha de Lanzamiento: <span>{{ videogameChosen.anio_lanzamiento }}</span></h3>
+        <h3>Empresa Desarrolladora: <span>{{ videogameChosen.empresa }}</span></h3>
+      </div>
+      <div>
+        <button type="button" id="añadir" *ngIf="!btnFav" (click)="agregarFav(videogameChosen.id)">Añadir a mis favoritos</button>
+        <button type="button" id="quitar" *ngIf="btnFav" (click)="quitarFav(videogameChosen.id)">Eliminar de mis favoritos</button>
+      </div>
+    </div>
+  </section>
+
+  <app-btn-up style="position: absolute" *ngIf="!showVideogameDetail"></app-btn-up>
+
+</main>
+<app-footer></app-footer>

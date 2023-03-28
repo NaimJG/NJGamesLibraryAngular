@@ -1,0 +1,56 @@
+<!-- Estilo de la card para la sección Home, Generos y Consolas -->
+
+<div *ngIf="!inFavoritos" (click)="onShowDetail()" [class.inTrackComponent]="condicion">
+
+  <img class="imagenJuego" [src]="videojuego.imagen">
+
+  <h3>{{ videojuego.nombre }}</h3>
+
+</div>
+
+<!-- Estilo de la card para la sección Favoritos y Ranking -->
+
+<div *ngIf="inFavoritos" class="inFavoritosClass">
+
+  <h1 *ngIf="inRanking" [ngClass]="{
+  'rankingPosition': true,
+  'rank1': getRankingPosition(videojuegos) === 1,
+  'rank2': getRankingPosition(videojuegos) === 2,
+  'rank3': getRankingPosition(videojuegos) === 3,
+  'defaultRank': getRankingPosition(videojuegos) > 3
+  }">
+    {{ getRankingPosition(videojuegos) }}
+  </h1>
+
+  <article class="imagenFav">
+
+    <img class="imagenJuego" [src]="videojuego.imagen">
+
+  </article>
+
+  <article class="descrFav">
+
+    <h3>{{ videojuego.nombre }}</h3>
+
+    <p>{{ videojuego.descripcion.length > 300 ? videojuego.descripcion.slice(0, 300) + ' (...)' : videojuego.descripcion }}</p>
+
+    <article class="descrFav2">
+
+      <p *ngIf="!inRanking"><b>Puesto en el ranking: {{ getRankingPosition(this.videojuegos) }}</b></p>
+
+      <button type="button" id="showDetail" (click)="onShowDetail()">Ver Detalle</button>
+
+      <button type="button" id="quitar" *ngIf="!inRanking" (click)="onDeleteFav()">Eliminar de mis favoritos </button>
+
+    </article>
+
+  </article>
+
+  <article *ngIf="inRanking" class="puntuacion">
+
+    <h6>Cantidad de Favs: </h6>
+    <p><img src="assets/images/favorite_FILL1_wght400_GRAD0_opsz48%20(1).svg">{{ videojuego.usuarioList.length }}</p>
+
+  </article>
+
+</div>

@@ -1,0 +1,22 @@
+<header>
+  <div class="nombre">
+    <a routerLink="/" *ngIf="!show"><h1>NJGames Library</h1></a>
+    <a *ngIf="show"><h1>NJGames Library</h1></a>
+  </div>
+  <div class="barrabusqueda" id="barrabusqueda" *ngIf="showBarraBusqueda">
+    <input type="text" (keyup)="onKeyUp($event)" placeholder="Buscar por nombre..." name="search" id="search">
+  </div>
+  <img class="search" src="../../../assets/images/search_FILL0_wght400_GRAD0_opsz48.svg" alt="Buscar" *ngIf="showBarraBusqueda">
+  <nav id="navbar">
+    <ul>
+      <li>
+        <a class="link" routerLink="/info" routerLinkActive="active" title="Informacion" *ngIf="!show">Info</a>
+        <a class="link" routerLink="/login" routerLinkActive="active" title="Inicio de sesión" *ngIf="!sesionIniciada">Iniciar Sesión</a>
+        <a class="link" routerLink="/cuenta" routerLinkActive="active" title="Información de Perfil" *ngIf="sesionIniciada">Cuenta</a>
+        <a class="link" routerLink="/register" routerLinkActive="active" title="Registrarse como nuevo usuario" *ngIf="!sesionIniciada">Registrarse</a>
+        <a class="link" title="Cerrar Sesión" *ngIf="sesionIniciada" (click)="cerrarSesion()">Cerrar Sesión</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+

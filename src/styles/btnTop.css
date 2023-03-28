@@ -1,0 +1,31 @@
+/* *----------- Botón para subir -----------------------*/
+
+.scroll-to-top {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 15px;
+  right: 15px;
+  opacity: 0;
+  border: none;
+  transition: all .2s ease-in-out;
+  z-index: 1;
+}
+.show-scrollTop {
+  opacity: 1;
+  transition: all .2s ease-in-out;
+}
+
+.scroll-to-top:hover{
+  transform: scale(1.1);
+  border-color: rgba(174, 174, 174, 0.1);
+}
+
+.btn{
+  border: solid 3px;
+  border-radius: 40%;
+}
+
+.btn:hover{
+  cursor: pointer;
+}

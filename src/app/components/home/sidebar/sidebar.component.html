@@ -1,0 +1,17 @@
+<section class="sidebar">
+  <div>
+    <a routerLink="/home" routerLinkActive="active" (click)="cambiarValor()" title="Ir al inicio">Inicio</a>
+  </div>
+  <div>
+    <a routerLink="/generos" routerLinkActive="active" (click)="cambiarValor()" title="Ir al filtro por generos">Generos</a>
+  </div>
+  <div>
+    <a routerLink="/consolas" routerLinkActive="active" (click)="cambiarValor()" title="Ir al filtro por consolas">Consolas</a>
+  </div>
+  <div>
+    <a routerLink="/ranking" routerLinkActive="active" title="Ir al ranking de videojuegos">Ranking</a>
+  </div>
+  <div *ngIf="sesionIniciada">
+    <a routerLink="/favoritos" routerLinkActive="active" title="Ir a tus videojuegos favoritos">Tus Favoritos</a>
+  </div>
+</section>

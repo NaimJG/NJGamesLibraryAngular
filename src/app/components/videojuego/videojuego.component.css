@@ -1,0 +1,171 @@
+div{
+  width: 330px;
+  height: 400px;
+  margin: 40px 20px 20px 40px;
+  background-color: rgb(219, 219, 219);
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  border-radius: 10px;
+}
+
+div:hover{
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+div:not(:hover){
+  transition: all 300ms ease;
+}
+
+div img{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 325px;
+  width: 100%;
+}
+
+.inTrackComponent{
+  width: 240px;
+  height: 300px;
+}
+
+.inTrackComponent img {
+  width: 240px;
+  height: 225px;
+}
+
+.inTrackComponent h3 {
+  font-size: 16px;
+}
+
+.inFavoritosClass {
+  position: relative;
+  width: 1000px;
+  height: 250px;
+  display: flex;
+}
+
+.inFavoritosClass .imagenFav{
+  width: 260px;
+  height: 250px;
+}
+
+.inFavoritosClass img {
+  width: 260px;
+  height: 250px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0;
+}
+
+.inFavoritosClass .descrFav{
+  display: flex;
+  flex-direction: column;
+  padding: 17px;
+}
+
+.inFavoritosClass .descrFav p{
+  text-align: justify;
+}
+
+.inFavoritosClass .descrFav .descrFav2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.inFavoritosClass .descrFav .descrFav2 p{
+  width: 300px;
+}
+
+#showDetail{
+  width: 200px;
+  height: 50px;
+  background-color: #3085d6;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#quitar{
+  width: 200px;
+  height: 50px;
+  background-color: rgb(228, 52, 52);
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#showDetail:hover{
+  cursor: pointer;
+  background-color: #22629a;
+}
+
+#quitar:hover{
+  cursor: pointer;
+  background-color: rgb(197, 0, 0);
+}
+
+.puntuacion{
+  position: relative;
+  padding-right: 20px;
+  font-size: 25px;
+  top: 90px;
+  width: 180px;
+  height: 70px;
+}
+
+.puntuacion p{
+  margin-top: 12px;
+  padding: 0;
+}
+
+.puntuacion h6{
+  font-size: 15px;
+}
+
+.puntuacion img{
+  width: 20px;
+  height: 20px;
+}
+
+.rankingPosition {
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+.rank1 {
+  width: 50px;
+  height: 50px;
+  background-color: gold;
+}
+
+.rank2 {
+  width: 50px;
+  height: 50px;
+  background-color: silver;
+}
+
+.rank3 {
+  width: 50px;
+  height: 50px;
+  background-color: #ec7c21;
+}
+
+.defaultRank {
+  background-color: #d9d9d9;
+}

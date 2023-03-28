@@ -1,0 +1,46 @@
+<app-header></app-header>
+<main>
+  <app-sidebar></app-sidebar>
+
+  <div *ngIf="!showVideogameDetail">
+    <h2 id="subtitulo">Tus juegos Favoritos</h2>
+    <div id="card">
+      <app-videojuego (showVideogame)="onShowDetail($event)"
+                      (deleteFav)="onDeleteFav($event)"
+                      [videojuego]="videojuego" *ngFor="let videojuego of videojuegos$ | async"></app-videojuego>
+    </div>
+  </div>
+
+  <!-- Sección oculta para info detallada de las cards -->
+
+  <section id="infoOculta" *ngIf="showVideogameDetail">
+    <div>
+      <button type="button" id="back" (click)="toggleVideogameDetail()"><img src="/assets/images/arrow_back_FILL0_wght400_GRAD0_opsz48.svg">Regresar</button>
+      <h2 id="tituloJuego">{{ videogameChosen.nombre }}</h2>
+    </div>
+    <div id="contenedorOculto">
+      <div id="bloqueImagen">
+        <img class="imagenJuego" src="{{ videogameChosen.imagen }}" id="{{ videogameChosen.id }}">
+      </div>
+      <div id="descripcion">
+        <p>{{ videogameChosen.descripcion }}</p>
+      </div>
+    </div>
+    <div>
+      <div id="caracteristicas">
+        <h3>Genero: <span>{{ videogameChosen.genero }}</span></h3>
+        <h3>Consola: <span>{{ videogameChosen.consola }}</span></h3>
+        <h3>Fecha de Lanzamiento: <span>{{ videogameChosen.anio_lanzamiento }}</span></h3>
+        <h3>Empresa Desarrolladora: <span>{{ videogameChosen.empresa }}</span></h3>
+      </div>
+      <div>
+        <button type="button" id="añadir" *ngIf="!btnFav" (click)="agregarFav(videogameChosen.id)">Añadir a mis favoritos</button>
+        <button type="button" id="quitar" *ngIf="btnFav" (click)="quitarFav(videogameChosen.id)">Eliminar de mis favoritos</button>
+      </div>
+    </div>
+  </section>
+
+  <app-btn-up style="position: absolute" *ngIf="!showVideogameDetail"></app-btn-up>
+
+</main>
+<app-footer></app-footer>
