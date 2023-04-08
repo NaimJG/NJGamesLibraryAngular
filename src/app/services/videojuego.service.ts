@@ -3,7 +3,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Videojuego } from "../models/videojuego.model";
-import {BehaviorSubject, map, Observable} from "rxjs";
+import { BehaviorSubject, map, Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
