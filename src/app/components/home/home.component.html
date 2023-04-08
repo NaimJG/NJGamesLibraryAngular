@@ -40,6 +40,9 @@
         <button type="button" id="quitar" *ngIf="btnFav" (click)="quitarFav(videogameChosen.id)">Eliminar de mis favoritos</button>
       </div>
     </div>
+    <div>
+      <iframe width="560" height="315" [src]="videogameChosen.video" allowfullscreen></iframe>
+    </div>
   </section>
 
   <app-btn-up style="position: absolute" *ngIf="!showVideogameDetail"></app-btn-up>

@@ -23,7 +23,8 @@ export class VideojuegoComponent implements OnInit {
     empresa: '',
     consola: '',
     imagen: '',
-    usuarioList: []
+    usuarioList: [],
+    video: '',
   }
 
   constructor(

@@ -10,5 +10,6 @@ export interface Videojuego {
   consola: string;
   imagen: string;
   usuarioList: any;
+  video: string;
 
 }

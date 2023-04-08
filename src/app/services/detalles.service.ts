@@ -22,7 +22,8 @@ export class DetallesService {
     genero: '',
     empresa: '',
     imagen: '',
-    usuarioList: []
+    usuarioList: [],
+    video: ''
   }
 
   get getVideogameChosen(): Videojuego {

@@ -33,7 +33,8 @@ export class RankingComponent  implements OnInit{
     genero: '',
     empresa: '',
     imagen: '',
-    usuarioList: []
+    usuarioList: [],
+    video: ''
   }
 
   constructor(

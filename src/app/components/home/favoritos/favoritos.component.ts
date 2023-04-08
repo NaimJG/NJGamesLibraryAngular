@@ -28,7 +28,8 @@ export class FavoritosComponent implements OnInit{
     genero: '',
     empresa: '',
     imagen: '',
-    usuarioList: []
+    usuarioList: [],
+    video: ''
   }
 
   constructor(

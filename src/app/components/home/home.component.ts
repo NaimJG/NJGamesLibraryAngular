@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import { UsuariosService } from "../../services/usuarios.service";
 import Swal from 'sweetalert2';
 import { Router } from "@angular/router";
+import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-home',
@@ -26,13 +27,15 @@ export class HomeComponent implements OnInit{
     genero: '',
     empresa: '',
     imagen: '',
-    usuarioList: []
+    usuarioList: [],
+    video: '',
   }
 
   constructor(
     private router: Router,
     private videojuegoService: VideojuegoService,
-    private usuarioService: UsuariosService
+    private usuarioService: UsuariosService,
+    private sanitizer: DomSanitizer
   ) {
   }
 
@@ -40,6 +43,7 @@ export class HomeComponent implements OnInit{
     this.videojuegoService.getAllVideogames().subscribe(data => {
       this.videojuegoService.setVideogamesList(data);
       this.videojuegos = this.videojuegoService.videojuegos;
+      console.log(this.videojuegos)
       this.videojuegoService.filtrarVideojuegos('');
       this.videojuegos$ = this.videojuegoService.videojuegosFiltrados$;
     });
@@ -63,6 +67,8 @@ export class HomeComponent implements OnInit{
       }
       this.toggleVideogameDetail();
       this.videogameChosen = data;
+      let video = this.getSafeVideoUrl(this.videogameChosen.video)
+      this.videogameChosen.video = video;
       let fecha = new Date(data.anio_lanzamiento)
       let mes = this.meses[fecha.getMonth()];
       let dia = fecha.getDate()+1;
@@ -123,6 +129,10 @@ export class HomeComponent implements OnInit{
         })
       }
     })
+  }
+
+  getSafeVideoUrl(video): string {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(video) as string;
   }
 
 }
