@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { UsuariosService } from "../../services/usuarios.service";
 import Swal from 'sweetalert2';
 import { Router } from "@angular/router";
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-home',
@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit{
     this.videojuegoService.getAllVideogames().subscribe(data => {
       this.videojuegoService.setVideogamesList(data);
       this.videojuegos = this.videojuegoService.videojuegos;
-      console.log(this.videojuegos)
       this.videojuegoService.filtrarVideojuegos('');
       this.videojuegos$ = this.videojuegoService.videojuegosFiltrados$;
     });

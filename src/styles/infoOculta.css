@@ -45,6 +45,7 @@
 
 #caracteristicas h3{
   font-size: 25px;
+  margin: 15px;
 }
 
 #caracteristicas h3 span{
@@ -66,8 +67,8 @@
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  bottom: 150px;
-  right: 180px;
+  bottom: 755px;
+  right: 150px;
 }
 
 #añadir{
@@ -82,8 +83,8 @@
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  bottom: 150px;
-  right: 180px;
+  bottom: 755px;
+  right: 150px;
 }
 
 #añadir:hover{
@@ -119,4 +120,16 @@
 #back img{
   width: 40px;
   height: 40px;
+}
+
+#trailer{
+  font-size: 40px;
+  color: #3f4041;
+  margin: 10px;
+}
+
+hr{
+  border: solid 1px;
+  margin: 0;
+  padding: 0;
 }

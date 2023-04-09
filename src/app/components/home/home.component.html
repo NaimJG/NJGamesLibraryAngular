@@ -25,7 +25,7 @@
         <img class="imagenJuego" src="{{ videogameChosen.imagen }}" id="{{ videogameChosen.id }}">
       </div>
       <div id="descripcion">
-        <p>{{ videogameChosen.descripcion }}</p>
+        <p>{{ videogameChosen.descripcion }}. <b>Mira el trailer oficial abajo!</b>.</p>
       </div>
     </div>
     <div>
@@ -40,8 +40,10 @@
         <button type="button" id="quitar" *ngIf="btnFav" (click)="quitarFav(videogameChosen.id)">Eliminar de mis favoritos</button>
       </div>
     </div>
+    <hr>
     <div>
-      <iframe width="560" height="315" [src]="videogameChosen.video" allowfullscreen></iframe>
+      <h2 id="trailer">Trailer Oficial</h2>
+      <iframe width="560" height="560" [src]="videogameChosen.video" allowfullscreen></iframe>
     </div>
   </section>
 

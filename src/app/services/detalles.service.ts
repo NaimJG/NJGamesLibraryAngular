@@ -2,6 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { Videojuego } from "../models/videojuego.model";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,8 @@ export class DetallesService {
 
   set setVideogameChosen(value: Videojuego) {
     this.videogameChosen = value;
+    let video = this.getSafeVideoUrl(value.video)
+    this.videogameChosen.video = video;
   }
 
   get getShowVideogameDetail() {
@@ -50,7 +53,11 @@ export class DetallesService {
     this.btnFav = valor;
   }
 
-  constructor() {
+  constructor(private sanitizer: DomSanitizer) {
+  }
+
+  getSafeVideoUrl(video): string {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(video) as string;
   }
 
 }

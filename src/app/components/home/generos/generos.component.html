@@ -37,7 +37,7 @@
         <img class="imagenJuego" src="{{ detalleService.videogameChosen.imagen }}" id="{{ detalleService.videogameChosen.id }}" alt="Imagen de portada del videojuego {{ detalleService.videogameChosen.nombre }}">
       </div>
       <div id="descripcion">
-        <p>{{ detalleService.videogameChosen.descripcion }}</p>
+        <p>{{ detalleService.videogameChosen.descripcion }}. Mira el trailer oficial abajo!</p>
       </div>
     </div>
     <div>
@@ -51,6 +51,11 @@
         <button type="button" id="añadir" *ngIf="!detalleService.getBtnFav" (click)="agregarFav(detalleService.videogameChosen.id)">Añadir a mis favoritos</button>
         <button type="button" id="quitar" *ngIf="detalleService.getBtnFav" (click)="quitarFav(detalleService.videogameChosen.id)">Eliminar de mis favoritos</button>
       </div>
+    </div>
+    <hr>
+    <div>
+      <h2 id="trailer">Trailer Oficial</h2>
+      <iframe width="560" height="560" [src]="detalleService.videogameChosen.video" allowfullscreen></iframe>
     </div>
   </section>
 

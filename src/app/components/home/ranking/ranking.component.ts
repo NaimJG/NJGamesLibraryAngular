@@ -4,7 +4,8 @@ import { Router } from "@angular/router";
 import { VideojuegoService } from "../../../services/videojuego.service";
 import { UsuariosService } from "../../../services/usuarios.service";
 import Swal from "sweetalert2";
-import {Observable} from "rxjs";
+import { Observable } from "rxjs";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-ranking',
@@ -40,7 +41,8 @@ export class RankingComponent  implements OnInit{
   constructor(
     private router: Router,
     private videojuegoService: VideojuegoService,
-    private usuarioService: UsuariosService
+    private usuarioService: UsuariosService,
+    private sanitizer: DomSanitizer
   ) {
   }
 
@@ -82,6 +84,8 @@ export class RankingComponent  implements OnInit{
       }
       this.toggleVideogameDetail();
       this.videogameChosen = data;
+      let video = this.getSafeVideoUrl(this.videogameChosen.video)
+      this.videogameChosen.video = video;
       let fecha = new Date(data.anio_lanzamiento)
       let mes = this.meses[fecha.getMonth()];
       let dia = fecha.getDate()+1;
@@ -215,5 +219,8 @@ export class RankingComponent  implements OnInit{
     }
   }
 
+  getSafeVideoUrl(video): string {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(video) as string;
+  }
 
 }

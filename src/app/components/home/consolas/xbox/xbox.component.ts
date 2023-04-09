@@ -3,6 +3,7 @@ import { VideojuegoService } from "../../../../services/videojuego.service";
 import { Videojuego } from "../../../../models/videojuego.model";
 import 'slick-carousel';
 import { DetallesService } from "../../../../services/detalles.service";
+
 @Component({
   selector: 'app-xbox',
   templateUrl: './xbox.component.html',

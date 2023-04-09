@@ -4,7 +4,8 @@ import { DetallesService } from "../../../services/detalles.service";
 import { VideojuegoService } from "../../../services/videojuego.service";
 import { UsuariosService } from "../../../services/usuarios.service";
 import Swal from 'sweetalert2';
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
+
 @Component({
   selector: 'app-generos',
   templateUrl: './generos.component.html',

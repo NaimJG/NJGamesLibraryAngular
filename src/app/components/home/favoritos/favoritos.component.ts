@@ -6,6 +6,7 @@ import { UsuariosService } from "../../../services/usuarios.service";
 import Swal from 'sweetalert2';
 import { Router } from "@angular/router";
 import { Usuario } from "../../../models/usuarios.model";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-favoritos',
@@ -35,7 +36,8 @@ export class FavoritosComponent implements OnInit{
   constructor(
     private router: Router,
     private videojuegoService: VideojuegoService,
-    private usuarioService: UsuariosService
+    private usuarioService: UsuariosService,
+    private sanitizer: DomSanitizer
   ) {
   }
 
@@ -71,6 +73,8 @@ export class FavoritosComponent implements OnInit{
       }
       this.toggleVideogameDetail();
       this.videogameChosen = data;
+      let video = this.getSafeVideoUrl(this.videogameChosen.video)
+      this.videogameChosen.video = video;
       let fecha = new Date(data.anio_lanzamiento)
       let mes = this.meses[fecha.getMonth()];
       let dia = fecha.getDate()+1;
@@ -163,6 +167,10 @@ export class FavoritosComponent implements OnInit{
         })
       }
     })
+  }
+
+  getSafeVideoUrl(video): string {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(video) as string;
   }
 
 }
